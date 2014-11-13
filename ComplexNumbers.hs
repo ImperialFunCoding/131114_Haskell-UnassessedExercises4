@@ -44,3 +44,25 @@ instance Num Complex where
         = Cpx (r) (i*b)
     (*) (Cpx r i) (Cpx r' i')
         = Cpx (r*r') (i*i')
+
+    negate (Real a)
+        = Real (-a)
+    negate (Img b)
+        = Img (-b)
+    negate (Cpx r i)
+        = Cpx (-r) (-i)
+    
+    abs (Real a)
+        = Real a
+    abs (Img a)
+        = Real a
+    abs (Cpx r i)
+        = Real (sqrt (r^2 + i^2))
+
+    signum (Real a)
+        | a == 0 = Real 0
+        | a > 1  = Real 1
+        | a < -1 = Real -1
+    signum a = undefined
+    fromInteger n
+        = Real (fromInteger n)
