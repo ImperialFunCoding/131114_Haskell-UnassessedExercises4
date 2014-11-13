@@ -1,4 +1,3 @@
--- New comment
 module ComplexNumbers where
 
 data Complex = Real Float | Img Float | Cpx Float Float
