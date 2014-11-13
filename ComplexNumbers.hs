@@ -43,8 +43,7 @@ instance Num Complex where
     (*) (Cpx r i) (Img b)
         = Cpx (-i*b) (r*b)
     (*) (Cpx r i) (Cpx r' i')
-<<<<<<< HEAD
-        = Cpx (r*r') (i*i')
+        = Cpx (r*r' - i*i') (r*i' + i*r')
 
     negate (Real a)
         = Real (-a)
@@ -67,6 +66,3 @@ instance Num Complex where
     signum a = undefined
     fromInteger n
         = Real (fromInteger n)
-=======
-        = Cpx (r*r' - i*i') (r*i' + i*r')
->>>>>>> refs/remotes/origin/master
