@@ -29,20 +29,21 @@ instance Num Complex where
     (*) (Real a) (Real b)     
         = Real (a*b)
     (*) (Real a) (Img b)       
-        = Cpx a b
-    (*) (Real a) (Cpx r i)
-        = Cpx (a*r) i
-    (*) (Img b) (Real a)
-        = Cpx a b
-    (*) (Img a) (Img b)       
         = Img (a*b)
+    (*) (Real a) (Cpx r i)
+        = Cpx (a*r) (a*i)
+    (*) (Img b) (Real a)
+        = Img (a*b)
+    (*) (Img a) (Img b)       
+        = Real (-a*b)
     (*) (Img a) (Cpx r i)       
-        = Cpx r (a*i)
+        = Cpx (-a*i) (a*r)
     (*) (Cpx r i) (Real a)
-        = Cpx (r*a) (i)
+        = Cpx (a*r) (a*i)
     (*) (Cpx r i) (Img b)
-        = Cpx (r) (i*b)
+        = Cpx (-i*b) (r*b)
     (*) (Cpx r i) (Cpx r' i')
+<<<<<<< HEAD
         = Cpx (r*r') (i*i')
 
     negate (Real a)
@@ -66,3 +67,6 @@ instance Num Complex where
     signum a = undefined
     fromInteger n
         = Real (fromInteger n)
+=======
+        = Cpx (r*r' - i*i') (r*i' + i*r')
+>>>>>>> refs/remotes/origin/master
